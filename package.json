@@ -1,0 +1,62 @@
+{
+  "name": "vscode-theme-hi",
+  "displayName": "Hi Theme",
+  "version": "0.0.1",
+  "description": "Hi theme for VS Code",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "hi",
+    "light",
+    "dark"
+  ],
+  "bugs": {
+    "url": "https://github.com/jiakun-zhao/vscode-theme-hi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiakun-zhao/vscode-theme-hi"
+  },
+  "license": "MIT",
+  "publisher": "jiakun-zhao",
+  "type": "module",
+  "files": [
+    "themes"
+  ],
+  "scripts": {
+    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\""
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Hi Light",
+        "uiTheme": "vs",
+        "path": "./themes/hi-light.json"
+      },
+      {
+        "label": "Hi Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hi-dark.json"
+      }
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@jiakun-zhao"
+  },
+  "devDependencies": {
+    "@jiakun-zhao/eslint-config": "^0.0.11",
+    "@types/node": "^20.2.3",
+    "eslint": "^8.41.0",
+    "esno": "^0.16.3",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.0.4"
+  },
+  "packageManager": "pnpm@8.5.1",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "icon": "icon.png",
+  "preview": true
+}
