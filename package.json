@@ -26,7 +26,8 @@
     "themes"
   ],
   "scripts": {
-    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\""
+    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
+    "release": "bumpp --all && vsce publish --no-dependencies"
   },
   "contributes": {
     "themes": [
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@jiakun-zhao/eslint-config": "^0.0.11",
     "@types/node": "^20.2.3",
+    "bumpp": "^9.1.0",
     "eslint": "^8.41.0",
     "esno": "^0.16.3",
     "nodemon": "^2.0.22",
