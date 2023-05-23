@@ -8,3 +8,4 @@
 #### 一些参考
 
 - https://code.visualstudio.com/api/references/theme-color
+- https://marketplace.visualstudio.com/manage
