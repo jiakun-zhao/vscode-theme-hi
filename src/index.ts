@@ -66,7 +66,9 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'titleBar.activeBackground': vitesse('background'),
       'titleBar.inactiveForeground': primer.gray[5],
       'titleBar.inactiveBackground': vitesse('background'),
-      'titleBar.border': vitesse('activeBackground'),
+      // hi
+      // 'titleBar.border': vitesse('activeBackground'),
+      'titleBar.border': vitesse('border'),
 
       'activityBar.foreground': vitesse('foreground'),
       'activityBar.inactiveForeground': vitesse('ignored'),
