@@ -26,8 +26,9 @@
     "themes"
   ],
   "scripts": {
+    "build": "esno src/index.ts",
     "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
-    "release": "bumpp --all && vsce publish --no-dependencies"
+    "release": "pnpm run build && bumpp --all && vsce publish --no-dependencies"
   },
   "contributes": {
     "themes": [

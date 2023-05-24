@@ -242,7 +242,9 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'problemsWarningIcon.foreground': vitesse('orange'),
       'problemsInfoIcon.foreground': vitesse('blue'),
 
-      'editorError.foreground': vitesse('red'),
+      // hi
+      // 'editorError.foreground': vitesse('red'),
+      'editorError.foreground': '#0000',
       // hi
       // 'editorWarning.foreground': vitesse('orange', '0'),
       'editorWarning.foreground': '#0000',
