@@ -9,3 +9,4 @@
 
 - https://code.visualstudio.com/api/references/theme-color
 - https://marketplace.visualstudio.com/manage
+- https://github.com/microsoft/vscode-loc/blob/main/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json
