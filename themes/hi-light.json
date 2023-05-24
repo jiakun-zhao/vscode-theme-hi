@@ -179,7 +179,7 @@
     "problemsErrorIcon.foreground": "#ab5959",
     "problemsWarningIcon.foreground": "#a65e2b",
     "problemsInfoIcon.foreground": "#296aa3",
-    "editorError.foreground": "#ab5959",
+    "editorError.foreground": "#0000",
     "editorWarning.foreground": "#0000",
     "editorInfo.foreground": "#296aa3",
     "editorHint.foreground": "#1e754f",
