@@ -12,3 +12,8 @@ Many thanks to [Anthony Fu](https://github.com/antfu)’s open source project, w
 - https://code.visualstudio.com/api/references/theme-color
 - https://marketplace.visualstudio.com/manage
 - https://github.com/microsoft/vscode-loc/blob/main/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json
+
+#### LICENSE
+
+MIT - Copyright (c) 2021 Anthony Fu
+MIT - Copyright (c) 2023 Jiakun Zhao
