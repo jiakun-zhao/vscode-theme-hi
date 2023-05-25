@@ -1,11 +1,13 @@
 # Hi theme for VS Code
 
-这个主题几乎和 [antfu/vscode-theme-vitesse](https://github.com/antfu/vscode-theme-vitesse) 完全一样，是我学习 VS Code 的主题插件开发的一个练手项目。同时也微调了一些颜色，使得更加适合我自己的使用习惯。
+This theme is almost identical to [antfu/vscode-theme-vitesse](https://github.com/antfu/vscode-theme-vitesse), and it is a practice project for me to learn about VS Code theme plugin development. At the same time, I also adjusted some colors to make it more suitable for my own use.
+
+Many thanks to [Anthony Fu](https://github.com/antfu)’s open source project, which taught me a lot.
 
 <br>
 <br>
 
-#### 一些参考
+#### Some references
 
 - https://code.visualstudio.com/api/references/theme-color
 - https://marketplace.visualstudio.com/manage
