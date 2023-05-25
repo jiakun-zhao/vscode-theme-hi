@@ -15,5 +15,5 @@ Many thanks to [Anthony Fu](https://github.com/antfu)’s open source project, w
 
 #### LICENSE
 
-MIT - Copyright (c) 2021 Anthony Fu
+MIT - Copyright (c) 2021 Anthony Fu<br>
 MIT - Copyright (c) 2023 Jiakun Zhao
