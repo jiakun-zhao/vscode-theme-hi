@@ -14,12 +14,25 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
     pick({ light: VitesseThemes[key][1] + op, dark: VitesseThemes[key][0] + op })
 
   const primer = getColors(theme)
-  // hi
+
+  const foreground = vitesse('foreground')
+  const secondaryForeground = vitesse('secondaryForeground')
+  const activeForeground = vitesse('activeForeground')
+  const primary = vitesse('primary')
+  const border = vitesse('border')
+  const background = vitesse('background')
+  const activeBackground = vitesse('activeBackground')
+  const punctuation = vitesse('punctuation')
+
+  const selectionBackgroundActive = pick({ light: '#22222215', dark: '#eeeeee15' })
+
+  // hi: selectionBackgroundInActive
   // const selectionBackgroundInActive = pick({ light: '#22222208', dark: '#eeeeee08' })
-  const selectionBackgroundInActive = pick({ light: '#22222208', dark: '#eeeeee15' })
-  // hi
+  const selectionBackgroundInActive = vitesse('yellow', '25')
+
+  // hi: selectionBackground
   // const selectionBackground = pick({ light: '#22222215', dark: '#eeeeee15' })
-  const selectionBackground = pick({ light: '#22222215', dark: '#ddd2' })
+  const selectionBackground = vitesse('yellow', '45')
 
   const data = {
     ...info,
@@ -27,145 +40,141 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
     colors: {
 
       'focusBorder': '#00000000',
-      'foreground': vitesse('foreground'),
-      'descriptionForeground': vitesse('secondaryForeground'),
+      'foreground': foreground,
+      'descriptionForeground': secondaryForeground,
       'errorForeground': vitesse('red'),
 
-      'textLink.foreground': vitesse('primary'),
-      'textLink.activeForeground': vitesse('primary'),
-      'textBlockQuote.background': vitesse('background'),
-      'textBlockQuote.border': vitesse('border'),
-      'textCodeBlock.background': vitesse('background'),
+      'textLink.foreground': primary,
+      'textLink.activeForeground': primary,
+      'textBlockQuote.background': background,
+      'textBlockQuote.border': border,
+      'textCodeBlock.background': background,
       'textPreformat.foreground': primer.gray[6],
       'textSeparator.foreground': primer.gray[3],
 
-      'button.background': vitesse('primary'),
-      'button.foreground': vitesse('background'),
-      'button.hoverBackground': vitesse('primary'),
+      'button.background': primary,
+      'button.foreground': background,
+      'button.hoverBackground': primary,
 
-      'checkbox.background': vitesse('activeBackground'),
+      'checkbox.background': activeBackground,
       'checkbox.border': pick({ light: primer.gray[3], dark: primer.gray[1] }),
 
-      'dropdown.background': vitesse('background'),
-      'dropdown.border': vitesse('border'),
-      'dropdown.foreground': vitesse('foreground'),
-      'dropdown.listBackground': vitesse('activeBackground'),
+      'dropdown.background': background,
+      'dropdown.border': border,
+      'dropdown.foreground': foreground,
+      'dropdown.listBackground': activeBackground,
 
-      'input.background': vitesse('activeBackground'),
-      'input.border': vitesse('border'),
-      'input.foreground': vitesse('foreground'),
-      'input.placeholderForeground': vitesse('secondaryForeground'),
+      'input.background': activeBackground,
+      'input.border': border,
+      'input.foreground': foreground,
+      'input.placeholderForeground': secondaryForeground,
       'inputOption.activeBackground': vitesse('ignored'),
 
-      'badge.foreground': vitesse('background'),
-      'badge.background': vitesse('secondaryForeground'),
+      'badge.foreground': background,
+      'badge.background': secondaryForeground,
 
-      'progressBar.background': vitesse('primary'),
+      'progressBar.background': primary,
 
-      'titleBar.activeForeground': vitesse('activeForeground'),
-      'titleBar.activeBackground': vitesse('background'),
+      'titleBar.activeForeground': activeForeground,
+      'titleBar.activeBackground': background,
       'titleBar.inactiveForeground': primer.gray[5],
-      'titleBar.inactiveBackground': vitesse('background'),
-      // hi
-      // 'titleBar.border': vitesse('activeBackground'),
+      'titleBar.inactiveBackground': background,
+      // hi: titleBar.border
+      // 'titleBar.border': activeBackground,
       'titleBar.border': vitesse('border'),
 
-      'activityBar.foreground': vitesse('foreground'),
+      'activityBar.foreground': foreground,
       'activityBar.inactiveForeground': vitesse('ignored'),
-      'activityBar.background': vitesse('background'),
-      'activityBarBadge.foreground': vitesse('background'),
-      'activityBarBadge.background': vitesse('activeForeground'),
-      'activityBar.activeBorder': vitesse('primary'),
-      'activityBar.border': vitesse('border'),
+      'activityBar.background': background,
+      'activityBarBadge.foreground': background,
+      'activityBarBadge.background': activeForeground,
+      'activityBar.activeBorder': primary,
+      'activityBar.border': border,
 
-      'sideBar.foreground': vitesse('activeForeground'),
-      'sideBar.background': vitesse('background'),
-      'sideBar.border': vitesse('border'),
-      'sideBarTitle.foreground': vitesse('foreground'),
-      'sideBarSectionHeader.foreground': vitesse('foreground'),
-      'sideBarSectionHeader.background': vitesse('background'),
-      'sideBarSectionHeader.border': vitesse('border'),
+      'sideBar.foreground': activeForeground,
+      'sideBar.background': background,
+      'sideBar.border': border,
+      'sideBarTitle.foreground': foreground,
+      'sideBarSectionHeader.foreground': foreground,
+      'sideBarSectionHeader.background': background,
+      'sideBarSectionHeader.border': border,
 
-      'list.hoverForeground': vitesse('foreground'),
-      'list.inactiveSelectionForeground': vitesse('foreground'),
-      'list.activeSelectionForeground': vitesse('foreground'),
-      'list.hoverBackground': vitesse('activeBackground'),
-      'list.inactiveSelectionBackground': vitesse('activeBackground'),
-      'list.activeSelectionBackground': vitesse('activeBackground'),
-      'list.inactiveFocusBackground': vitesse('background'),
-      'list.focusBackground': vitesse('activeBackground'),
-      'list.highlightForeground': vitesse('primary'),
+      'list.hoverForeground': foreground,
+      'list.inactiveSelectionForeground': foreground,
+      'list.activeSelectionForeground': foreground,
+      'list.hoverBackground': activeBackground,
+      'list.inactiveSelectionBackground': activeBackground,
+      'list.activeSelectionBackground': activeBackground,
+      'list.inactiveFocusBackground': background,
+      'list.focusBackground': activeBackground,
+      'list.highlightForeground': primary,
 
       'tree.indentGuidesStroke': pick({ light: primer.gray[2], dark: primer.gray[1] }),
 
       'notificationCenterHeader.foreground': primer.gray[5],
-      'notificationCenterHeader.background': vitesse('background'),
-      'notifications.foreground': vitesse('foreground'),
-      'notifications.background': vitesse('background'),
-      'notifications.border': vitesse('border'),
+      'notificationCenterHeader.background': background,
+      'notifications.foreground': foreground,
+      'notifications.background': background,
+      'notifications.border': border,
       'notificationsErrorIcon.foreground': vitesse('red'),
       'notificationsWarningIcon.foreground': vitesse('orange'),
       'notificationsInfoIcon.foreground': vitesse('blue'),
 
-      'pickerGroup.border': vitesse('border'),
-      'pickerGroup.foreground': vitesse('foreground'),
-      'quickInput.background': vitesse('background'),
-      'quickInput.foreground': vitesse('foreground'),
-      'quickInputList.focusBackground': vitesse('activeBackground'),
+      'pickerGroup.border': border,
+      'pickerGroup.foreground': foreground,
+      'quickInput.background': background,
+      'quickInput.foreground': foreground,
+      'quickInputList.focusBackground': activeBackground,
 
-      'statusBar.foreground': vitesse('activeForeground'),
-      'statusBar.background': vitesse('background'),
-      'statusBar.border': vitesse('border'),
-      'statusBar.noFolderBackground': vitesse('background'),
-      'statusBar.debuggingBackground': vitesse('activeBackground'),
-      'statusBar.debuggingForeground': vitesse('activeForeground'),
-      'statusBarItem.prominentBackground': vitesse('activeBackground'),
+      'statusBar.foreground': activeForeground,
+      'statusBar.background': background,
+      'statusBar.border': border,
+      'statusBar.noFolderBackground': background,
+      'statusBar.debuggingBackground': activeBackground,
+      'statusBar.debuggingForeground': activeForeground,
+      'statusBarItem.prominentBackground': activeBackground,
 
-      'editorGroupHeader.tabsBackground': vitesse('background'),
-      'editorGroupHeader.tabsBorder': vitesse('border'),
-      'editorGroup.border': vitesse('border'),
+      'editorGroupHeader.tabsBackground': background,
+      'editorGroupHeader.tabsBorder': border,
+      'editorGroup.border': border,
 
-      'tab.activeForeground': vitesse('foreground'),
+      'tab.activeForeground': foreground,
       'tab.inactiveForeground': primer.gray[5],
-      'tab.inactiveBackground': vitesse('background'),
-      'tab.activeBackground': vitesse('background'),
-      'tab.hoverBackground': vitesse('activeBackground'),
-      'tab.unfocusedHoverBackground': vitesse('background'),
-      'tab.border': vitesse('border'),
-      'tab.unfocusedActiveBorderTop': vitesse('border'),
-      'tab.activeBorder': vitesse('border'),
-      'tab.unfocusedActiveBorder': vitesse('border'),
-      'tab.activeBorderTop': vitesse('secondaryForeground'),
+      'tab.inactiveBackground': background,
+      'tab.activeBackground': background,
+      'tab.hoverBackground': activeBackground,
+      'tab.unfocusedHoverBackground': background,
+      'tab.border': border,
+      'tab.unfocusedActiveBorderTop': border,
+      'tab.activeBorder': border,
+      'tab.unfocusedActiveBorder': border,
+      'tab.activeBorderTop': secondaryForeground,
 
       'breadcrumb.foreground': primer.gray[5],
-      'breadcrumb.focusForeground': vitesse('foreground'),
-      'breadcrumb.background': vitesse('activeBackground'),
-      'breadcrumb.activeSelectionForeground': pick({ light: '#22222215', dark: '#eeeeee15' }),
-      'breadcrumbPicker.background': vitesse('background'),
+      'breadcrumb.focusForeground': foreground,
+      'breadcrumb.background': activeBackground,
+      'breadcrumb.activeSelectionForeground': selectionBackgroundActive,
+      'breadcrumbPicker.background': background,
 
-      'editor.foreground': vitesse('foreground'),
-      'editor.background': vitesse('background'),
-      'editorWidget.background': vitesse('background'),
+      'editor.foreground': foreground,
+      'editor.background': background,
+      'editorWidget.background': background,
       'editor.foldBackground': pick({ light: '#22222210', dark: '#eeeeee10' }),
-      // hi
-      // 'editor.lineHighlightBackground': vitesse('activeBackground'),
+      // hi: editor.lineHighlightBackground
+      // 'editor.lineHighlightBackground': activeBackground,
       'editor.lineHighlightBackground': '#0000',
-      // hi
-      'editor.lineHighlightBorder': '#0000',
       'editorLineNumber.foreground': vitesse('ignored'),
-      'editorLineNumber.activeForeground': vitesse('activeForeground'),
+      'editorLineNumber.activeForeground': activeForeground,
       'editorIndentGuide.background': pick({ light: '#00000015', dark: '#ffffff15' }),
       'editorIndentGuide.activeBackground': pick({ light: '#00000030', dark: '#ffffff30' }),
       'editorWhitespace.foreground': pick({ light: '#00000015', dark: '#ffffff15' }),
-      // 'editorCursor.foreground': vitesse('primary'),
+      // 'editorCursor.foreground': primary,
 
       'editor.findMatchBackground': pick({ light: '#e6cc7744', dark: '#e6cc7722' }),
       'editor.findMatchHighlightBackground': pick({ light: '#e6cc7766', dark: '#e6cc7744' }),
       'editor.inactiveSelectionBackground': selectionBackgroundInActive,
       'editor.selectionBackground': selectionBackground,
       'editor.selectionHighlightBackground': selectionBackgroundInActive,
-      // hi
-      'editor.selectionHighlightBorder': vitesse('border', '00'),
       'editor.wordHighlightBackground': pick({ light: '#1c6b4805', dark: '#1c6b4805' }),
       'editor.wordHighlightStrongBackground': pick({ light: '#1c6b4810', dark: '#1c6b4810' }),
       'editorBracketMatch.background': pick({ light: '#1c6b4820', dark: '#4d937520' }),
@@ -179,14 +188,14 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'scrollbarSlider.activeBackground': vitesse('ignored'),
       'editorOverviewRuler.border': primer.white,
 
-      'panel.background': vitesse('background'),
-      'panel.border': vitesse('border'),
-      'panelTitle.activeBorder': vitesse('primary'),
-      'panelTitle.activeForeground': vitesse('foreground'),
+      'panel.background': background,
+      'panel.border': border,
+      'panelTitle.activeBorder': primary,
+      'panelTitle.activeForeground': foreground,
       'panelTitle.inactiveForeground': primer.gray[5],
       'panelInput.border': pick({ light: primer.gray[2], dark: primer.gray[1] }),
 
-      'terminal.foreground': vitesse('foreground'),
+      'terminal.foreground': foreground,
       'terminal.selectionBackground': selectionBackground,
       'terminal.ansiBrightBlack': pick({ light: '#aaaaaa', dark: '#777777' }),
       'terminal.ansiBrightBlue': vitesse('blue'),
@@ -224,17 +233,20 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'editorBracketHighlight.foreground5': vitesse('yellow'),
       'editorBracketHighlight.foreground6': vitesse('blue'),
 
-      'debugToolBar.background': vitesse('background'),
+      'debugToolBar.background': background,
       'editor.stackFrameHighlightBackground': pick({ light: primer.yellow[1], dark: '#a707' }),
       'editor.focusedStackFrameHighlightBackground': pick({ light: primer.yellow[2], dark: '#b808' }),
+      // hi: peekViewEditor.matchHighlightBackground
+      // 'peekViewEditor.matchHighlightBackground': pick({ dark: '#ffd33d33' }),
+      'peekViewEditor.matchHighlightBackground': vitesse('orange', '40'),
+      // hi: peekViewResult.matchHighlightBackground
+      // 'peekViewResult.matchHighlightBackground': pick({ dark: '#ffd33d33' }),
+      'peekViewResult.matchHighlightBackground': vitesse('orange', '80'),
+      'peekViewEditor.background': background,
+      'peekViewResult.background': background,
 
-      'peekViewEditor.matchHighlightBackground': pick({ light: '#ffd33d33', dark: '#ffd33d33' }),
-      'peekViewResult.matchHighlightBackground': pick({ light: '#ffd33d33', dark: '#ffd33d33' }),
-      'peekViewEditor.background': vitesse('background'),
-      'peekViewResult.background': vitesse('background'),
-
-      'settings.headerForeground': vitesse('foreground'),
-      'settings.modifiedItemIndicator': vitesse('primary'),
+      'settings.headerForeground': foreground,
+      'settings.modifiedItemIndicator': primary,
       'welcomePage.buttonBackground': primer.gray[1],
       'welcomePage.buttonHoverBackground': primer.gray[2],
 
@@ -242,25 +254,42 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'problemsWarningIcon.foreground': vitesse('orange'),
       'problemsInfoIcon.foreground': vitesse('blue'),
 
-      // hi
-      // 'editorError.foreground': vitesse('red'),
-      'editorError.foreground': '#0000',
-      // hi
-      // 'editorWarning.foreground': vitesse('orange', '0'),
-      'editorWarning.foreground': '#0000',
+      'editorError.foreground': vitesse('red'),
+      'editorWarning.foreground': vitesse('orange'),
       'editorInfo.foreground': vitesse('blue'),
       'editorHint.foreground': vitesse('green'),
 
       'editorGutter.commentRangeForeground': vitesse('ignored'),
       'editorGutter.foldingControlForeground': vitesse('secondaryForeground'),
 
-      'editorInlayHint.foreground': vitesse('punctuation'),
+      'editorInlayHint.foreground': punctuation,
       'editorInlayHint.background': '#00000000',
 
-      'editorStickyScroll.background': vitesse('activeBackground'),
-      'editorStickyScrollHover.background': vitesse('activeBackground'),
+      'editorStickyScroll.background': activeBackground,
+      'editorStickyScrollHover.background': activeBackground,
 
-      'menu.separatorBackground': vitesse('border'),
+      'menu.separatorBackground': border,
+
+      // hi: start
+
+      // 'editor.selectionHighlightBorder': vitesse('border'),
+      'editor.lineHighlightBorder': '#0000',
+
+      'errorLens.warningBackground': `${VitesseThemes.orange[0]}15`,
+      'errorLens.warningBackgroundLight': `${VitesseThemes.orange[1]}15`,
+      'errorLens.warningForeground': `${VitesseThemes.orange[0]}`,
+      'errorLens.warningForegroundLight': `${VitesseThemes.orange[1]}`,
+
+      'errorLens.errorBackground': `${VitesseThemes.red[0]}15`,
+      'errorLens.errorBackgroundLight': `${VitesseThemes.red[1]}15`,
+      'errorLens.errorForeground': `${VitesseThemes.red[0]}`,
+      'errorLens.errorForegroundLight': `${VitesseThemes.red[1]}`,
+
+      'errorLens.infoBackground': `${VitesseThemes.blue[0]}15`,
+      'errorLens.infoBackgroundLight': `${VitesseThemes.blue[1]}15`,
+      'errorLens.infoForeground': `${VitesseThemes.blue[0]}`,
+      'errorLens.infoForegroundLight': `${VitesseThemes.blue[1]}`,
+      // hi: end
     },
     semanticHighlighting: true,
     semanticTokenColors: {

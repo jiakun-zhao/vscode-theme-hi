@@ -10,8 +10,8 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
-      "preLaunchTask": "npm: dev"
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+      // "preLaunchTask": "npm: dev"
     }
   ]
 }

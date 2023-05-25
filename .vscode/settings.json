@@ -6,5 +6,12 @@
   ],
   "cSpell.ignorePaths": [
     "themes/**",
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    // "editorWarning.foreground": "#ff0000"
+    // "errorLens.warningForeground": "#ff0000"
+    // "errorLens.errorBackground": "#ff0000"
+    // "editor.lineHighlightBackground": "#ff0000"
+    
+  }
 }

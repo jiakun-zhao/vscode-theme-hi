@@ -20,11 +20,11 @@ export const VitesseThemes = {
   secondaryForeground: ['#dedcd590', '#393a3490'],
   ignored: ['#dedcd550', '#393a3450'],
   faded: ['#dedcd510', '#393a3410'],
-  // hi
+  // hi: border
   // border: ['#191919', '#f0f0f0'],
   border: ['#262626', '#f0f0f0'],
 
-  // hi
+  // hi: background
   // background: ['#121212', '#ffffff'],
   background: ['#111', '#ffffff'],
   activeBackground: ['#181818', '#f7f7f7'],
@@ -33,7 +33,7 @@ export const VitesseThemes = {
   lowActiveBackground: ['#292929', '#E7E5DB'],
   lowBorder: ['#252525', '#E7E5DB'],
 
-  // hi
+  // hi: comment
   // comment: ['#758575dd', '#a0ada0'],
   comment: ['#555555', '#cccccc'],
   string: ['#c98a7d', '#b56959'],
