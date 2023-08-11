@@ -33,6 +33,9 @@ export const VitesseThemes = {
   lowActiveBackground: ['#292929', '#E7E5DB'],
   lowBorder: ['#252525', '#E7E5DB'],
 
+  // hi:
+  selectionBackground: ['#ffffff', '#000000'],
+
   // hi: comment
   // comment: ['#758575dd', '#a0ada0'],
   comment: ['#555555', '#cccccc'],

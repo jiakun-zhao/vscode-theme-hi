@@ -1,34 +1,34 @@
 {
+  "publisher": "jiakun-zhao",
   "name": "vscode-theme-hi",
   "displayName": "Hi Theme",
+  "type": "module",
   "version": "0.0.10",
+  "packageManager": "pnpm@8.6.12",
   "description": "Hi theme for VS Code",
-  "categories": [
-    "Themes"
-  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiakun-zhao/vscode-theme-hi"
+  },
+  "bugs": {
+    "url": "https://github.com/jiakun-zhao/vscode-theme-hi/issues"
+  },
   "keywords": [
     "theme",
     "hi",
     "light",
     "dark"
   ],
-  "bugs": {
-    "url": "https://github.com/jiakun-zhao/vscode-theme-hi/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jiakun-zhao/vscode-theme-hi"
-  },
-  "license": "MIT",
-  "publisher": "jiakun-zhao",
-  "type": "module",
+  "categories": [
+    "Themes"
+  ],
+  "icon": "icon.png",
   "files": [
     "themes"
   ],
-  "scripts": {
-    "build": "esno src/index.ts",
-    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
-    "release": "pnpm run build && bumpp --all && vsce publish --no-dependencies"
+  "engines": {
+    "vscode": "^1.43.0"
   },
   "contributes": {
     "themes": [
@@ -44,22 +44,22 @@
       }
     ]
   },
+  "scripts": {
+    "build": "esno src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
+    "release": "pnpm run build && bumpp --all && vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@jiakun-zhao/eslint-config": "^1.2.1",
+    "@types/node": "^20.4.9",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.46.0",
+    "esno": "^0.17.0",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6"
+  },
   "eslintConfig": {
     "extends": "@jiakun-zhao"
   },
-  "devDependencies": {
-    "@jiakun-zhao/eslint-config": "^0.0.11",
-    "@types/node": "^20.2.3",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.41.0",
-    "esno": "^0.16.3",
-    "nodemon": "^2.0.22",
-    "typescript": "^5.0.4"
-  },
-  "packageManager": "pnpm@8.5.1",
-  "engines": {
-    "vscode": "^1.43.0"
-  },
-  "icon": "icon.png",
   "preview": true
 }

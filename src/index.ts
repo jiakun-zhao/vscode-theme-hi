@@ -28,11 +28,11 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
 
   // hi: selectionBackgroundInActive
   // const selectionBackgroundInActive = pick({ light: '#22222208', dark: '#eeeeee08' })
-  const selectionBackgroundInActive = vitesse('yellow', '25')
+  const selectionBackgroundInActive = vitesse('selectionBackground', '20')
 
   // hi: selectionBackground
   // const selectionBackground = pick({ light: '#22222215', dark: '#eeeeee15' })
-  const selectionBackground = vitesse('yellow', '45')
+  const selectionBackground = vitesse('selectionBackground', '15')
 
   const data = {
     ...info,
@@ -124,7 +124,9 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'pickerGroup.foreground': foreground,
       'quickInput.background': background,
       'quickInput.foreground': foreground,
-      'quickInputList.focusBackground': activeBackground,
+      // hi: quickInputList.focusBackground
+      // 'quickInputList.focusBackground': activeBackground,
+      'quickInputList.focusBackground': selectionBackgroundInActive,
 
       'statusBar.foreground': activeForeground,
       'statusBar.background': background,
@@ -170,14 +172,23 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'editorWhitespace.foreground': pick({ light: '#00000015', dark: '#ffffff15' }),
       // 'editorCursor.foreground': primary,
 
-      'editor.findMatchBackground': pick({ light: '#e6cc7744', dark: '#e6cc7722' }),
-      'editor.findMatchHighlightBackground': pick({ light: '#e6cc7766', dark: '#e6cc7744' }),
+      // hi: editor.findMatchBackground
+      // 'editor.findMatchBackground': pick({ light: '#e6cc7744', dark: '#e6cc7722' }),
+      'editor.findMatchBackground': selectionBackground,
+      // hi: editor.findMatchHighlightBackground
+      // 'editor.findMatchHighlightBackground': pick({ light: '#e6cc7766', dark: '#e6cc7744' }),
+      'editor.findMatchHighlightBackground': selectionBackgroundInActive,
       'editor.inactiveSelectionBackground': selectionBackgroundInActive,
       'editor.selectionBackground': selectionBackground,
       'editor.selectionHighlightBackground': selectionBackgroundInActive,
       'editor.wordHighlightBackground': pick({ light: '#1c6b4805', dark: '#1c6b4805' }),
       'editor.wordHighlightStrongBackground': pick({ light: '#1c6b4810', dark: '#1c6b4810' }),
-      'editorBracketMatch.background': pick({ light: '#1c6b4820', dark: '#4d937520' }),
+      // hi: editorBracketMatch.background
+      // 'editorBracketMatch.background': pick({ light: '#1c6b4820', dark: '#4d937520' }),
+      'editorBracketMatch.background': selectionBackground,
+
+      // hi: editorSuggestWidget.selectedBackground
+      'editorSuggestWidget.selectedBackground': pick({ light: '#00000020', dark: '#ffffff15' }),
 
       'diffEditor.insertedTextBackground': pick({ light: '#1c6b4815', dark: '#4d937522' }),
       'diffEditor.removedTextBackground': pick({ light: '#ab595910', dark: '#ab595922' }),
