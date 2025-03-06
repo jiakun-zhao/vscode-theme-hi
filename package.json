@@ -25,9 +25,6 @@
     "Themes"
   ],
   "icon": "icon.png",
-  "files": [
-    "themes"
-  ],
   "engines": {
     "vscode": "^1.43.0"
   },
