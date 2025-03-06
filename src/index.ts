@@ -1,17 +1,21 @@
-import { VitesseThemes } from './colors'
-import { getColors, toArray, write } from './utils'
-import type { Theme, ThemeInfo } from './types'
+import type { Theme, ThemeInfo, VitesseColors } from './types'
+import { objectEntries, toArray } from '@jiakun-zhao/utils'
+import { vitesseColors } from './colors'
+import { getColors, write } from './utils'
+
+type VitesseColorKeys = keyof VitesseColors
 
 const themeInfo: Record<Theme, ThemeInfo> = {
   light: { name: 'Hi Light', base: 'vs' },
   dark: { name: 'Hi Dark', base: 'vs-dark' },
 }
 
-for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
+objectEntries(themeInfo).forEach(([theme, info]) => {
   const pick = (options: Record<Theme, string>) => options[theme]
-
-  const vitesse = (key: keyof typeof VitesseThemes, op = '') =>
-    pick({ light: VitesseThemes[key][1] + op, dark: VitesseThemes[key][0] + op })
+  const vitesse = (key: VitesseColorKeys, op = '') => pick({
+    dark: vitesseColors[key][0] + op,
+    light: vitesseColors[key][1] + op
+  })
 
   const primer = getColors(theme)
 
@@ -216,13 +220,13 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       'terminal.ansiBrightRed': vitesse('red'),
       'terminal.ansiBrightWhite': pick({ light: '#dddddd', dark: '#ffffff' }),
       'terminal.ansiBrightYellow': vitesse('yellow'),
-      'terminal.ansiBlack': pick({ light: VitesseThemes.background[0], dark: VitesseThemes.foreground[1] }),
+      'terminal.ansiBlack': pick({ light: vitesseColors.background[0], dark: vitesseColors.foreground[1] }),
       'terminal.ansiBlue': vitesse('blue'),
       'terminal.ansiCyan': vitesse('cyan'),
       'terminal.ansiGreen': vitesse('green'),
       'terminal.ansiMagenta': vitesse('magenta'),
       'terminal.ansiRed': vitesse('red'),
-      'terminal.ansiWhite': pick({ light: VitesseThemes.foreground[0], dark: VitesseThemes.foreground[0] }),
+      'terminal.ansiWhite': pick({ light: vitesseColors.foreground[0], dark: vitesseColors.foreground[0] }),
       'terminal.ansiYellow': vitesse('yellow'),
 
       'gitDecoration.addedResourceForeground': vitesse('green'),
@@ -286,20 +290,20 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
       // 'editor.selectionHighlightBorder': vitesse('border'),
       'editor.lineHighlightBorder': '#0000',
 
-      'errorLens.warningBackground': `${VitesseThemes.orange[0]}15`,
-      'errorLens.warningBackgroundLight': `${VitesseThemes.orange[1]}15`,
-      'errorLens.warningForeground': `${VitesseThemes.orange[0]}`,
-      'errorLens.warningForegroundLight': `${VitesseThemes.orange[1]}`,
+      'errorLens.warningBackground': `${vitesseColors.orange[0]}15`,
+      'errorLens.warningBackgroundLight': `${vitesseColors.orange[1]}15`,
+      'errorLens.warningForeground': `${vitesseColors.orange[0]}`,
+      'errorLens.warningForegroundLight': `${vitesseColors.orange[1]}`,
 
-      'errorLens.errorBackground': `${VitesseThemes.red[0]}15`,
-      'errorLens.errorBackgroundLight': `${VitesseThemes.red[1]}15`,
-      'errorLens.errorForeground': `${VitesseThemes.red[0]}`,
-      'errorLens.errorForegroundLight': `${VitesseThemes.red[1]}`,
+      'errorLens.errorBackground': `${vitesseColors.red[0]}15`,
+      'errorLens.errorBackgroundLight': `${vitesseColors.red[1]}15`,
+      'errorLens.errorForeground': `${vitesseColors.red[0]}`,
+      'errorLens.errorForegroundLight': `${vitesseColors.red[1]}`,
 
-      'errorLens.infoBackground': `${VitesseThemes.blue[0]}15`,
-      'errorLens.infoBackgroundLight': `${VitesseThemes.blue[1]}15`,
-      'errorLens.infoForeground': `${VitesseThemes.blue[0]}`,
-      'errorLens.infoForegroundLight': `${VitesseThemes.blue[1]}`,
+      'errorLens.infoBackground': `${vitesseColors.blue[0]}15`,
+      'errorLens.infoBackgroundLight': `${vitesseColors.blue[1]}15`,
+      'errorLens.infoForeground': `${vitesseColors.blue[0]}`,
+      'errorLens.infoForegroundLight': `${vitesseColors.blue[1]}`,
       // hi: end
     },
     semanticHighlighting: true,
@@ -773,22 +777,14 @@ for (const [theme, info] of Object.entries(themeInfo) as [Theme, ThemeInfo][]) {
         },
       },
     ],
-    rules: [],
+    rules: [] as { token: string, foreground?: string }[],
   }
 
-  const rules: any[] = []
-
   data.tokenColors.forEach(({ scope, settings }: any) => {
-    for (const s of toArray(scope)) {
-      rules.push({
-        token: s,
-        foreground: settings.foreground?.replace('#', ''),
-      })
-    }
+    toArray(scope).forEach((token) => {
+      data.rules.push({ token, foreground: settings.foreground?.replace('#', '') })
+    })
   })
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  data.rules = rules
-  await write(theme, data)
-}
+  write(theme, data)
+})

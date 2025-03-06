@@ -1,3 +1,5 @@
+import { VitesseColors } from "./types"
+
 export const colors = {
   black: '#111',
   white: '#fff',
@@ -12,7 +14,7 @@ export const colors = {
 }
 
 // [dark, light]
-export const VitesseThemes = {
+export const vitesseColors: VitesseColors = {
   primary: ['#4d9375', '#1c6b48'],
 
   foreground: ['#dbd7caee', '#393a34'],

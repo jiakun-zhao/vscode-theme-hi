@@ -1,37 +1,19 @@
-import { writeFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
 import type { Theme } from './types'
+import { writeFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { objectMap } from '@jiakun-zhao/utils'
 import { colors } from './colors'
 
 // primer
-export function getColors(style: Theme) {
-  if (style === 'dark') {
-    /* The array of light to dark colors are reversed to auto-generate dark theme */
-    const darkColors: any = {}
-    Object.entries(colors).forEach(([name, val]) => {
-      if (name === 'black')
-        darkColors.white = val
-
-      else if (name === 'white')
-        darkColors.black = val
-
-      else
-        darkColors[name] = [...toArray(val)].reverse()
-    })
-    return darkColors
-  } else {
+export function getColors(style: Theme): typeof colors {
+  if (style === 'light')
     return colors
-  }
+  const { white, black, ...rest } = colors
+  return { white: black, black: white, ...objectMap(rest, (name, values) => [name, values.toReversed()]) }
 }
 
-export function toArray<T>(arr: T | T[]): T[] {
-  if (Array.isArray(arr))
-    return arr
-  return [arr]
-}
-
-export async function write(theme: Theme, data: any) {
-  await writeFile(
+export function write(theme: Theme, data: any) {
+  writeFileSync(
     fileURLToPath(new URL(`../themes/hi-${theme}.json`, import.meta.url)),
     JSON.stringify(data, null, 2),
   )
