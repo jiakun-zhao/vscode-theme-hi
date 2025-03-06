@@ -4,7 +4,7 @@
   "name": "vscode-theme-hi",
   "displayName": "Hi Theme",
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "packageManager": "pnpm@10.5.2",
   "description": "Hi theme for VS Code",
   "license": "MIT",
