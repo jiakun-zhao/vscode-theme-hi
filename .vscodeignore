@@ -1,7 +1,8 @@
-.vscode/**
-.gitignore
-/node_modules/
-/pnpm-lock.yaml
-/src/
+# Ignore everything
+*
+*/**
 
-vscode-theme-*
+# Whitelist what you need
+!.vscodeignore
+!themes/*
+!README.md
